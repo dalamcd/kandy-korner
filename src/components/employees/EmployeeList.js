@@ -10,11 +10,8 @@ export const EmployeeList = props => {
 
 	useEffect(() => {
 		getLocations()
+		.then(getEmployees);
 	}, [])
-
-	useEffect(() => {
-		getEmployees()
-	}, [locations])
 
 	return (
 		<>
