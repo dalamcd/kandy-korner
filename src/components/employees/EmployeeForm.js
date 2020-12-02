@@ -21,7 +21,7 @@ export const EmployeeForm = props => {
 
 		const emp = {
 			name: name.current.value,
-			location: parseInt(locationId.current.value),
+			locationId: parseInt(locationId.current.value),
 			manager: manager.current.value === "yes" ? true : false,
 			fulltime: fulltime.current.value === "yes" ? true : false,
 			rate: parseInt(rate.current.value)

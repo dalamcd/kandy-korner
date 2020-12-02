@@ -12,9 +12,11 @@ export const ProductProvider = props => {
 		.then(setProducts);
 	}
 
+	const getProductByProductId = id => products.find(prod => prod.id === parseInt(id))
+
 	return (
 		<ProductContext.Provider value={{
-			products, getProducts
+			products, getProducts, getProductByProductId
 		}}>
 		{props.children}
 		</ProductContext.Provider>
