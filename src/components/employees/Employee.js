@@ -1,6 +1,10 @@
-import React from "react";
+import React, { useContext } from "react";
+import { EmployeeContext } from "./EmployeeProvider";
 
 export const Employee = ({ emp, loc }) => {
+
+	const { removeEmployee } = useContext(EmployeeContext);
+
 	return (
 		<section className="employee">
 			<div className="employeeName">{emp.name}</div>
@@ -10,6 +14,7 @@ export const Employee = ({ emp, loc }) => {
 				{emp.manager ? "manager" : "not a manager"}
 			</div>
 			{loc ? <div className="employeeLocation">{loc.address}</div> : ``}
+			<button onClick={() => removeEmployee(emp)}>Fire Employee</button>
 		</section>
 	)
 }
