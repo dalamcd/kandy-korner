@@ -12,6 +12,7 @@ import { CustomerCandyProvider } from "./orders/CustomerCandyProvider"
 import { OrderList } from "./orders/OrderList"
 import { CustomerProvider } from "./customers/CustomerProvider"
 import { CustomerList } from "./customers/CustomerList"
+import { InventorySearch } from "./products/InventorySearch"
 
 export const ApplicationViews = props => {
 	return (
@@ -20,6 +21,7 @@ export const ApplicationViews = props => {
 				<CustomerCandyProvider>
 					<ProductProvider>
 						<Route exact path="/products">
+							<InventorySearch />
 							<ProductList />
 						</Route>
 					</ProductProvider>

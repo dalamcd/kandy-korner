@@ -6,7 +6,7 @@ import { CustomerCandyContext } from "../orders/CustomerCandyProvider";
 
 export const ProductList = props => {
 
-	const {products, getProducts} = useContext(ProductContext)
+	const {products, getProducts, searchTerms} = useContext(ProductContext)
 	const {getProductTypes, getProductTypeById} = useContext(ProductTypeContext)
 	const {addCustomerCandy} = useContext(CustomerCandyContext);
 
@@ -15,10 +15,18 @@ export const ProductList = props => {
 		.then(getProducts)
 	}, [])
 
+	let filteredProducts;
+
+	if(searchTerms !== "") {
+		filteredProducts = products.filter(t => t.name.toLowerCase().includes(searchTerms.toLowerCase()))
+	} else {
+		filteredProducts = products;
+	}
+
 	return (
 		<>
 			<h1>Products</h1>
-			{products.map(prod => {
+			{filteredProducts.map(prod => {
 				const prodType = getProductTypeById(prod.productTypeId)
 				return (
 				<>
